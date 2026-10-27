@@ -1,0 +1,254 @@
+:root {
+  --ink: #140806;
+  --panel: rgba(36, 16, 14, 0.88);
+  --cream: #f7f0e4;
+  --gold: #f0c27a;
+  --gold-deep: #c9843a;
+  --maroon: #8d1d38;
+  --line: rgba(240, 194, 122, 0.35);
+  color: var(--cream);
+  background: var(--ink);
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+[hidden] { display: none !important; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 50% -10%, rgba(201, 132, 58, 0.45), transparent 42%),
+    radial-gradient(circle at 100% 100%, rgba(141, 29, 56, 0.35), transparent 36%),
+    var(--ink);
+}
+
+.top {
+  text-align: center;
+  padding: 28px 16px 8px;
+}
+
+.eyebrow {
+  margin: 0;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-size: 13px;
+}
+
+h1 {
+  margin: 6px 0 0;
+  font-family: "Iowan Old Style", Palatino, Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(48px, 7vw, 84px);
+  letter-spacing: -0.03em;
+}
+
+main {
+  width: min(1100px, calc(100% - 32px));
+  margin: 0 auto 40px;
+}
+
+.live {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.stage {
+  position: relative;
+  width: min(460px, 100%);
+  aspect-ratio: 4 / 5;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #2a1210;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35), 0 0 0 1px var(--line);
+}
+
+.stage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: #1a0c0a;
+}
+
+.countdown,
+.dressing,
+.camera-note {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.countdown {
+  background: linear-gradient(to top, rgba(12, 4, 4, 0.55), rgba(12, 4, 4, 0.12));
+}
+
+#shot-label {
+  margin: 0 0 8px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+#count {
+  margin: 0;
+  font-family: "Iowan Old Style", Palatino, Georgia, serif;
+  font-size: 168px;
+  line-height: 0.85;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+#hold {
+  margin: 12px 0 0;
+  color: var(--gold);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 18px;
+}
+
+.dressing,
+.camera-note {
+  background: rgba(16, 6, 6, 0.72);
+  padding: 24px;
+  font-size: 28px;
+  font-family: "Iowan Old Style", Palatino, Georgia, serif;
+}
+
+.flash {
+  position: absolute;
+  inset: 0;
+  background: white;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.flash.play { animation: flash 280ms ease-out; }
+
+@keyframes flash {
+  from { opacity: 0.9; }
+  to { opacity: 0; }
+}
+
+button {
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #f3d7a1, var(--gold-deep));
+  color: #3a160c;
+  font: 700 28px/1 "Avenir Next", "Segoe UI", sans-serif;
+  padding: 20px 48px;
+  min-width: min(460px, 100%);
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: wait;
+}
+
+#new-guest,
+#refresh {
+  font-size: 18px;
+  padding: 12px 22px;
+  min-width: 0;
+}
+
+.error {
+  color: #ffb4a8;
+  margin: 0;
+}
+
+.results { display: grid; gap: 18px; }
+
+.results-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 22px;
+  align-items: start;
+}
+
+.share {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 18px;
+  text-align: center;
+}
+
+.share h2 {
+  margin: 0 0 12px;
+  font-family: "Iowan Old Style", Palatino, Georgia, serif;
+  font-weight: 500;
+  font-size: 28px;
+}
+
+.share img {
+  width: 100%;
+  height: auto;
+  background: white;
+  border-radius: 12px;
+}
+
+.share a { color: var(--gold); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.card {
+  margin: 0;
+  background: var(--panel);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+
+.card img { width: 100%; display: block; aspect-ratio: 4 / 5; object-fit: cover; }
+
+.card figcaption {
+  padding: 8px 10px 12px;
+  font-size: 13px;
+  color: var(--gold);
+}
+
+.ai-note, .drive-note { margin: 0 0 12px; }
+
+.setup {
+  margin-top: 22px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 12px 16px 16px;
+}
+
+.setup summary { cursor: pointer; color: var(--gold); }
+
+.setup label, .setup button { display: block; margin-top: 12px; }
+
+.setup select {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: #1c0d0b;
+  color: var(--cream);
+  font: 16px/1.3 "Avenir Next", "Segoe UI", sans-serif;
+}
+
+.hint { color: rgba(247, 240, 228, 0.75); font-size: 14px; line-height: 1.45; }
+
+@media (max-width: 800px) {
+  .results-layout { grid-template-columns: 1fr; }
+  #count { font-size: 120px; }
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Diwali Photobooth</title>
+    <link rel="stylesheet" href="/static/styles.css?v=2" />
+  </head>
+  <body>
+    <header class="top">
+      <p class="eyebrow">Happy Diwali</p>
+      <h1>Photobooth</h1>
+    </header>
+
+    <main>
+      <section id="live" class="live">
+        <div class="stage">
+          <img id="preview" alt="Live camera preview" />
+          <p id="camera-note" class="camera-note" hidden></p>
+          <div id="countdown" class="countdown" hidden>
+            <p id="shot-label">Photo 1 of 3</p>
+            <p id="count">10</p>
+            <p id="hold" hidden>Hold still</p>
+          </div>
+          <div id="dressing" class="dressing" hidden>
+            <p>Dressing your photos</p>
+          </div>
+          <div id="flash" class="flash" hidden></div>
+        </div>
+        <button id="capture" type="button">Capture</button>
+        <p id="error" class="error" hidden></p>
+      </section>
+
+      <section id="results" class="results" hidden>
+        <div class="results-layout">
+          <aside id="share" class="share" hidden>
+            <h2>Take them home</h2>
+            <img id="qr" alt="QR code for the Google Drive folder" />
+            <a id="drive-link" href="" target="_blank" rel="noopener">Open the folder</a>
+          </aside>
+          <div>
+            <p id="ai-note" class="ai-note" hidden></p>
+            <p id="drive-note" class="drive-note" hidden></p>
+            <div id="grid" class="grid"></div>
+          </div>
+        </div>
+        <button id="new-guest" type="button">New guest</button>
+      </section>
+
+      <details id="setup" class="setup">
+        <summary>Setup</summary>
+        <label>
+          Camera
+          <select id="camera"></select>
+        </label>
+        <button id="refresh" type="button">Refresh cameras</button>
+        <label id="ai-label" hidden>
+          <input id="ai" type="checkbox" />
+          AI Diwali scene
+        </label>
+        <p class="hint">
+          On the Action 2, choose Webcam after you plug in the cable. It usually appears as UVC Camera.
+          Guests should stand in the center. Capture takes 3 photos, with 10 seconds before each one.
+        </p>
+      </details>
+    </main>
+    <script src="/static/app.js?v=2"></script>
+  </body>
+</html>
